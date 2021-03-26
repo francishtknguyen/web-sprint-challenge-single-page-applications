@@ -37,7 +37,6 @@ const App = () => {
     .post(`https://reqres.in/api/users`, newOrder)
     .then(res => {
       setOrder([res.data, ...orders])
-      console.log(res.data);
     })
     .catch(err => {
       console.log(err)
@@ -79,7 +78,6 @@ const App = () => {
       <div className="banner">
       <h1 className="title">Frank's Pizza Shop</h1>
       <nav>
-       
         <div className="nav-links">
           <Link to='/'>Home </Link>
           <Link to='/pizza'>Order Here</Link>
@@ -97,7 +95,7 @@ const App = () => {
           orders={orders}
           />
         </Route>
-        <Route pathh = '/'>
+        <Route path = '/'>
           <Home />
         </Route>
       </Switch>

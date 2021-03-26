@@ -9,7 +9,6 @@ describe('Pizza app sprint Challenge', () => {
     });
 
     const orderLink = () => cy.get('a').contains('Order Here');
-    const homeLink = () => cy.get('a').contains('Home');
     const nameInput = () => cy.get('input[name="name"]');
     const sizeInput = () => cy.get('select[name="size"]');
     const specialInput = () => cy.get('input[name="special"]');
@@ -74,7 +73,7 @@ describe('Pizza app sprint Challenge', () => {
         // click submit
 
         submitBtn().click();
-
+        cy.contains("Test Name");
     })
 
 
