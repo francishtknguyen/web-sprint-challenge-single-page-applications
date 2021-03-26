@@ -30,7 +30,7 @@ const App = () => {
   const [formValues, setFormValues] = useState(initialFormValues);
   const [orders,setOrder]= useState(intitialOrders);
   const [disabled, setDisabled] = useState(intialDisabled)
-  const [formErrors, setFormErrors]=useState(null)
+  const [formErrors, setFormErrors]=useState(initialFormErrors)
 
   const postData = (newOrder) => {
     axios
@@ -92,6 +92,7 @@ const App = () => {
           submit={submit} 
           disabled ={disabled} 
           errors ={formErrors}
+          orders={orders}
           />
         </Route>
         <Route pathh = '/'>

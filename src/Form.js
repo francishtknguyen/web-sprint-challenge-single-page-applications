@@ -6,8 +6,9 @@ import React from 'react'
 
 export default function Form(props) {
     
-    const {values, change, submit, disabled, errors} = props
+    const {values, change, submit, disabled, errors, orders} = props
     
+    console.log(orders)
     
     const Onchange = (evt) => {
         const {checked, value, name, type } = evt.target
@@ -86,9 +87,30 @@ export default function Form(props) {
         </div>
         <button className= "submitBtn" disabled={disabled}>Submit</button>
         <div className="errors">
-            {/* <div>{errors.name}</div> */}
-            {/* <div>{errors.size}</div> */}
+            <div>{errors.name}</div> 
+             <div>{errors.size}</div>
+        </div>
+        <div>
+        <h2>Orders</h2>
+        {
+            orders.map( (order, idx) => {
+                return(<div key={idx}>
+                <div>Name: {order.name}</div>
+                <div>Size: {order.size}</div>
+                {!!order.ingredients  && !!order.ingredients.length &&
+                    <div className="order-card">
+                    Toppings:
+                        <ul>
+                        {order.ingredients.map((top, idx) => <li key={idx}>{top}</li>)}
+                        </ul>
+                    </div>
+                }
+                <div>Special Notes: {order.special}</div>
+                </div>
+            )})
+        }
         </div>
         </form>
+        
     )
 }
