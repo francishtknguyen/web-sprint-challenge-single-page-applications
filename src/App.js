@@ -76,16 +76,18 @@ const App = () => {
   })
   return (
     <div className="App">
+      <div className="banner">
+      <h1 className="title">Frank's Pizza Shop</h1>
       <nav>
-        <h1 className="title">Frank's Pizza Shop</h1>
+       
         <div className="nav-links">
           <Link to='/'>Home </Link>
           <Link to='/pizza'>Order Here</Link>
         </div>  
       </nav>
-
+      </div>
       <Switch>
-        <Route path='/pizza'>
+        <Route path='/pizza' >
           <Form 
           values={formValues} 
           change={change} 

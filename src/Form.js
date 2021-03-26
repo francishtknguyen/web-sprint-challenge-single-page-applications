@@ -23,7 +23,9 @@ export default function Form(props) {
     }
     return(
         <form onSubmit={Onsubmit}>
+        <div className ="container">
         <div className="form-container">
+            <h2>Order Form</h2>
             <label>Name
             <input 
             name="name" 
@@ -43,62 +45,67 @@ export default function Form(props) {
             </label>
             <div className="ingredients">
             <label>Pepperoni
-                
-            </label><input
+                <input
                 name="pepperoni"
                 type="checkbox"
                 checked={values.pepperoni}
                 onChange={Onchange}
                 />
+            </label>
             <label>Sausage
-              
-            </label>  <input
+                <input
                 name="sausage"
                 type="checkbox"
                 checked={values.sausage}
                 onChange={Onchange}
                 />
+            </label>  
             <label>Pineapple
-                
-            </label><input
+                <input
                 name="pineapple"
                 type="checkbox"
                 checked={values.pineapple}
                 onChange={Onchange}
                 />
+            </label>
             <label>Jalapenos
-               
-            </label> <input
+               <input
                 name="jalapenos"
                 type="checkbox"
                 checked={values.jalapenos}
                 onChange={Onchange}
                 />
+            </label> 
             </div>
+            <div className="special">
             <label>Special Instructions:
-            <input 
-            name="special" 
-            type="text" 
-            value={values.special} 
-            onChange={Onchange}
-            />
-            </label>
+                
+            </label><input 
+                name="special" 
+                type="text" 
+                value={values.special} 
+                onChange={Onchange}
+                />
+            </div>
+            <div><button className= "submitBtn" disabled={disabled}>Submit</button>   </div>
             
         </div>
-        <button className= "submitBtn" disabled={disabled}>Submit</button>
+        
         <div className="errors">
             <div>{errors.name}</div> 
              <div>{errors.size}</div>
         </div>
-        <div>
-        <h2>Orders</h2>
+       
+        <div className="orders"> 
+        <h2>Orders:</h2>
         {
+        
             orders.map( (order, idx) => {
-                return(<div key={idx}>
+                return(<div key={idx} className="order-card">
                 <div>Name: {order.name}</div>
                 <div>Size: {order.size}</div>
                 {!!order.ingredients  && !!order.ingredients.length &&
-                    <div className="order-card">
+                    <div >
                     Toppings:
                         <ul>
                         {order.ingredients.map((top, idx) => <li key={idx}>{top}</li>)}
@@ -108,7 +115,10 @@ export default function Form(props) {
                 <div>Special Notes: {order.special}</div>
                 </div>
             )})
+            
         }
+        </div>
+        
         </div>
         </form>
         
